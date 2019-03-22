@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4501686990225833279}
   - component: {fileID: 4501686990225833275}
   - component: {fileID: 4501686990225833276}
-  - component: {fileID: 8733963503108691912}
+  - component: {fileID: 3168163611755679309}
+  - component: {fileID: 594989152}
   m_Layer: 10
   m_Name: player
   m_TagString: Untagged
@@ -155,7 +156,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8733963503108691912
+--- !u!114 &3168163611755679309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,3 +168,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e67a3ad07ee72442a836e9a244cb9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: 4501686990225833276}
+  thrust: 20
+  maxCharge: 5
+  playerCharge: {fileID: 594989152}
+--- !u!114 &594989152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501686990225833264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208ef35aa12da434c88a35d88dba281b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharge: 0
+  chargeSlider: {fileID: 0}
+  maxCharge: 20
