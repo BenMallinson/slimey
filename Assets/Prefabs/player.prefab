@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3168163611755679309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +171,9 @@ MonoBehaviour:
   rigidBody: {fileID: 4501686990225833276}
   thrust: 20
   maxCharge: 5
+  playerStart: {fileID: 0}
   playerCharge: {fileID: 594989152}
+  maxJumpCount: 2
 --- !u!114 &594989152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,4 +188,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharge: 0
   chargeSlider: {fileID: 0}
-  maxCharge: 20

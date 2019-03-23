@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject playerStart;
 
     public PlayerCharge playerCharge;
+    private int jumpCount = 0;
+    public int maxJumpCount = 2;
+    private bool facingRight = true;
 
     void Awake () {
         playerCharge = gameObject.GetComponent<PlayerCharge> ();
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour {
         thrust = gameObject.GetComponent<float> ();
         maxCharge = gameObject.GetComponent<int> ();
         playerStart = gameObject.GetComponent<GameObject> ();
+        maxJumpCount = gameObject.GetComponent<int> ();
     }
 
     // Update is called once per frame
@@ -29,22 +33,50 @@ public class PlayerController : MonoBehaviour {
         processMovement ();
     }
 
+    void OnCollisionEnter2D (Collision2D col) {
+        if (col.gameObject.tag == "tile") {
+            jumpCount = 0;
+        }
+    }
+
     void processMovement () {
-        if (movementKeyDown () && chargeTimer <= maxCharge) {
+        if (canJump () && movementKeyDown () && chargeTimer <= maxCharge) {
+
             chargeTimer++;
             playerCharge.setCharge (chargeTimer);
         }
 
-        if (Input.GetKeyUp ("right")) {
-            addForce (new Vector2 (1, 3));
-            resetChargeTimer ();
-        } else if (Input.GetKeyUp ("left")) {
-            addForce (new Vector2 (-1, 3));
-            resetChargeTimer ();
-        } else if (Input.GetKeyUp ("up")) {
-            addForce (new Vector2 (0, 4));
-            resetChargeTimer ();
+        if (canJump ()) {
+            if (Input.GetKeyUp ("right")) {
+                if (!facingRight) {
+                    Flip ();
+                    facingRight = true;
+                }
+                jumpCount++;
+                addForce (new Vector2 (1, 3));
+                resetChargeTimer ();
+
+            } else if (Input.GetKeyUp ("left")) {
+                if (facingRight) {
+                    Flip ();
+                    facingRight = false;
+                }
+                jumpCount++;
+                addForce (new Vector2 (-1, 3));
+                resetChargeTimer ();
+
+            } else if (Input.GetKeyUp ("up")) {
+                jumpCount++;
+                addForce (new Vector2 (0, 4));
+                resetChargeTimer ();
+            }
         }
+    }
+
+    void Flip () {
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     void resetChargeTimer () {
@@ -58,5 +90,9 @@ public class PlayerController : MonoBehaviour {
 
     bool movementKeyDown () {
         return Input.GetKey ("right") || Input.GetKey ("left") || Input.GetKey ("up");
+    }
+
+    bool canJump () {
+        return jumpCount < maxJumpCount;
     }
 }
