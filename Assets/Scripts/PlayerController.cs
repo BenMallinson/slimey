@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void OnCollisionEnter2D (Collision2D col) {
-        if (col.gameObject.tag == "tile") {
+        if (col.gameObject.tag == "Tile") {
             jumpCount = 0;
         }
     }
