@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
                     facingRight = true;
                 }
                 jumpCount++;
-                addForce (new Vector2 (1, 3));
+                addForce (new Vector2 (2, 3));
                 resetChargeTimer ();
 
             } else if (Input.GetKeyUp ("left")) {
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
                     facingRight = false;
                 }
                 jumpCount++;
-                addForce (new Vector2 (-1, 3));
+                addForce (new Vector2 (-2, 3));
                 resetChargeTimer ();
 
             } else if (Input.GetKeyUp ("up")) {
