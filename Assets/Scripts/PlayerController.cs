@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     public Rigidbody2D rigidBody;
@@ -37,6 +38,15 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.tag == "Tile") {
             jumpCount = 0;
         }
+
+        if (col.gameObject.tag == "Death") {
+            ReloadLevel();
+        }
+    }
+
+    void ReloadLevel() {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
     void processMovement () {
