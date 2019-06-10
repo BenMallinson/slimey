@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour {
     private int chargeTimer = 0;
     public int maxCharge;
 
-    public GameObject playerStart;
-
     public PlayerCharge playerCharge;
     private int jumpCount = 0;
     public int maxJumpCount = 2;
@@ -23,9 +21,8 @@ public class PlayerController : MonoBehaviour {
 
     void Start () {
         rigidBody = gameObject.GetComponent<Rigidbody2D> ();
-        thrust = gameObject.GetComponent<float> ();
+        thrust = gameObject.GetComponent<int> ();
         maxCharge = gameObject.GetComponent<int> ();
-        playerStart = gameObject.GetComponent<GameObject> ();
         maxJumpCount = gameObject.GetComponent<int> ();
     }
 
@@ -39,6 +36,10 @@ public class PlayerController : MonoBehaviour {
             jumpCount = 0;
         }
 
+          if (col.gameObject.tag == "End") {
+            this.LoadNextLevel();
+        }
+
         if (col.gameObject.tag == "Death") {
             ReloadLevel();
         }
@@ -47,6 +48,11 @@ public class PlayerController : MonoBehaviour {
     void ReloadLevel() {
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
+       void LoadNextLevel() {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene + 1, LoadSceneMode.Single);
     }
 
     void processMovement () {
