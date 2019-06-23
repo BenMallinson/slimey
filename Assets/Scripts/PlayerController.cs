@@ -14,9 +14,13 @@ public class PlayerController : MonoBehaviour {
     public int maxJumpCount = 2;
     private bool facingRight = true;
 
+    private SpriteRenderer spriteRenderer;
+
+
     void Awake () {
         playerCharge = gameObject.GetComponent<PlayerCharge> ();
         playerCharge.setMax (maxCharge);
+        spriteRenderer =  gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Start () {
@@ -37,7 +41,8 @@ public class PlayerController : MonoBehaviour {
         }
 
           if (col.gameObject.tag == "End") {
-            this.LoadNextLevel();
+            spriteRenderer.color = new Color(255f,255f,255f, Mathf.Lerp(0f, 1f, spriteRenderer.color.a - 0.5f));
+            Invoke("LoadNextLevel", 1);
         }
 
         if (col.gameObject.tag == "Death") {

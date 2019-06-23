@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 790f332967d641d4fa84f29fad28eb83
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 24
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Squidgy Slimes
+  fontNames:
+  - Squidgy Slimes
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2188d31ab61303a43bf9a625aa9a4b0c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
