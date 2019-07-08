@@ -3,9 +3,8 @@
  using UnityEngine.UI;
  using TMPro;
  
- public class Timer : MonoBehaviour {
+ public class LevelTimer : MonoBehaviour {
      public TextMeshProUGUI timerLabel;
- 
      private float time;
  
      void Update() {

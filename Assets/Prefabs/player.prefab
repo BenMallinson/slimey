@@ -175,7 +175,7 @@ MonoBehaviour:
   maxCharge: 25
   playerCharge: {fileID: 594989152}
   maxJumpCount: 2
-  winSound: {fileID: 0}
+  anim: {fileID: 4501686990225833279}
 --- !u!114 &594989152
 MonoBehaviour:
   m_ObjectHideFlags: 0

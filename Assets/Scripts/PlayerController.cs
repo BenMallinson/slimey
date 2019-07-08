@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     private bool facingRight = true;
 
     private SpriteRenderer spriteRenderer;
+    public Animator anim;
 
 
     void Awake () {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         thrust = gameObject.GetComponent<int> ();
         maxCharge = gameObject.GetComponent<int> ();
         maxJumpCount = gameObject.GetComponent<int> ();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,7 +43,8 @@ public class PlayerController : MonoBehaviour {
         }
 
           if (col.gameObject.tag == "End") {
-            spriteRenderer.color = new Color(255f,255f,255f, Mathf.Lerp(0f, 1f, spriteRenderer.color.a - 0.5f));
+              Debug.Log(anim);
+            anim.SetBool("LevelCompleted", true);
             Invoke("LoadNextLevel", 1);
         }
 

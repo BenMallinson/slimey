@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 6776315143065829059}
   - component: {fileID: 6776315143065829068}
   - component: {fileID: 6776315143065829070}
-  - component: {fileID: 6776315143065829069}
+  - component: {fileID: 438790039}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6776315143065829069
+--- !u!114 &438790039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1158,10 +1158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6776315143065829071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3b05fefae121242855e37322960dd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 43902150f486a4f08bd39ebe40bffe35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerLabel: {fileID: 0}
+  timerLabel: {fileID: 6776315143065829070}
 --- !u!1 &6776315143106834954
 GameObject:
   m_ObjectHideFlags: 0
